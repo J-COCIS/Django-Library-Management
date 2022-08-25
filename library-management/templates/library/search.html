@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <style media="screen">
+        table.redTable {
+            border: 2px solid #a40808;
+            background-color: #eee7db;
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+        }
+        
+        table.redTable td,
+        table.redTable th {
+            border: 1px solid #aaaaaa;
+            padding: 3px 2px;
+        }
+        
+        table.redTable tbody td {
+            font-size: 13px;
+        }
+        
+        table.redTable tr:nth-child(even) {
+            background: #f5c8bf;
+        }
+        
+        table.redTable thead {
+            background: #a40808;
+        }
+        
+        table.redTable thead th {
+            font-size: 19px;
+            font-weight: bold;
+            color: #ffffff;
+            text-align: center;
+            border-left: 2px solid #a40808;
+        }
+        
+        table.redTable thead th:first-child {
+            border-left: none;
+        }
+        
+        table.redTable tfoot {
+            font-size: 13px;
+            font-weight: bold;
+            color: #ffffff;
+            background: #a40808;
+        }
+        
+        table.redTable tfoot td {
+            font-size: 13px;
+        }
+        
+        table.redTable tfoot .links {
+            text-align: right;
+        }
+        
+        table.redTable tfoot .links a {
+            display: inline-block;
+            background: #ffffff;
+            color: #a40808;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+
+<body>
+    {% include "library/navbarstudent.html" %} {% if searchedBook %}
+    <div class="container">
+        <table class="table table-hover table-condensed table-striped table-bordered">
+            <thead>
+                <tr>
+                    <th>Book Title</th>
+                    <th>Book ID</th>
+                    <th>Subject Area</th>
+                    <th>Author</th>
+                    <th>Edition</th>
+                    <th>Publiction Date</th>
+                    <th>category</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="4" rowspan="4">
+                        <div class="links"></div>
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+                {% for searchedBook in searchedBook %}
+                <tr>
+                    <td>{{searchedBook.title}}</td>
+                    <td>{{searchedBook.bookid}}</td>
+                    <td>{{searchedBook.subjectArea}}</td>
+                    <td>{{searchedBook.author}}</td>
+                    <td>{{searchedBook.edition}}</td>
+                    <td>{{searchedBook.publicationDate}}</td>
+                    <td>{{searchedBook.category}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {%else%}
+    <h1 style="margin-top:100px ;">No results Found</h1>
+    {%endif%}
+
+    <br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+</body>
+
+</html>
